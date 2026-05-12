@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Table;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -11,7 +12,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        //
+       return view('table');
     }
 
     /**
@@ -19,7 +20,7 @@ class FrontendController extends Controller
      */
     public function create()
     {
-        //
+        return view('form');
     }
 
     /**
@@ -27,8 +28,16 @@ class FrontendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        // Table::create([
+        //     'name'=>$request->name,
+        //     'email'=>$request->email,
+        //     'phone'=>$request->Phone,
+        // ]);
+        Table::create($request->all());
+        return redirect('/form');
     }
+
 
     /**
      * Display the specified resource.
