@@ -26,28 +26,24 @@
 
     <table>
         <tr>
-            <th>ID</th>
+           
             <th>Name</th>
             <th>Email</th>
+            <th>Phone</th>
+            <th>Show</th>
         </tr>
 
-        <tr>
-            <td>1</td>
-            <td>Kamal</td>
-            <td>kamal@gmail.com</td>
-        </tr>
-
-        <tr>
-            <td>2</td>
-            <td>Ankita</td>
-            <td>ankita@gmail.com</td>
-        </tr>
-
-        <tr>
-            <td>3</td>
-            <td>ramm</td>
-            <td>ram@gmail.com</td>
-        </tr>
+         @foreach ( $datas as $data )  //table ma data auna help garxa
+        
+      <tr>
+        <td>{{ $data->name }}</td>
+        <td>{{ $data->phone }}</td>
+        <td>{{ $data->email }} </td>
+        <td><button>show</button></td>
+      </tr>
+       
+        @endforeach
+   
     </table>
 
 </body>

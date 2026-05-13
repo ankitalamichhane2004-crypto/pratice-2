@@ -12,7 +12,10 @@ class FrontendController extends Controller
      */
     public function index()
     {
-       return view('table');
+        $datas = Table::get();
+        // dd($datas);
+       return view('table',compact('datas'));
+       
     }
 
     /**
@@ -35,7 +38,7 @@ class FrontendController extends Controller
         //     'phone'=>$request->Phone,
         // ]);
         Table::create($request->all());
-        return redirect('/form');
+        return redirect('/table');
     }
 
 
