@@ -59,7 +59,8 @@ class FrontendController extends Controller
      */
     public function edit(string $id)
     {
-        //
+       $data = Table::find($id);
+       return view('edit',compact('data'));
     }
 
     /**

@@ -31,6 +31,7 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Show</th>
+            <th colspan="2">Modify</th>
         </tr>
 
          @foreach ( $datas as $data )  //table ma data auna help garxa
@@ -40,6 +41,8 @@
         <td>{{ $data->phone }}</td>
         <td>{{ $data->email }} </td>
         <td><a href="{{ route('show', $data->id) }}"><button>Show</button></a></td>
+        <td><a href="{{ route('edit', $data->id) }}"><button>Edit</button></td></a></td>
+        <td><button>Delete</button></td>
       </tr>
        
         @endforeach
