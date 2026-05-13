@@ -48,7 +48,9 @@ class FrontendController extends Controller
     public function show(string $id)
     {
        $data= table::find($id);
-        dd($data);
+        // dd($data);
+        return view('show',compact('data'));
+
         
     }
 
