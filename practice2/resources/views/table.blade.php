@@ -39,7 +39,7 @@
         <td>{{ $data->name }}</td>
         <td>{{ $data->phone }}</td>
         <td>{{ $data->email }} </td>
-        <td><button>show</button></td>
+        <td><a href="{{ route('show', $data->id) }}"><button>Show</button></a></td>
       </tr>
        
         @endforeach

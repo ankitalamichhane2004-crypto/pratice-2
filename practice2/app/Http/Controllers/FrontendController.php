@@ -47,6 +47,8 @@ class FrontendController extends Controller
      */
     public function show(string $id)
     {
+       $data= table::find($id);
+        dd($data);
         
     }
 
