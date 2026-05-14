@@ -38,9 +38,7 @@ class FrontendController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(string $id)
     {
        $data= table::find($id);
@@ -50,28 +48,29 @@ class FrontendController extends Controller
         
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(string $id)
     {
        $data = Table::find($id);
        return view('edit',compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+  
     public function update(Request $request, string $id)
     {
-        
+         $table = Table::find($id);
+        //  $table->update([
+        //     'name'=>$request->name
+        //  ]);
+         $table->update($request->all());
+         return redirect()->route('table');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(string $id)
     {
-        //
+       $table= Table::find($id);
+        $table->delete();
+        return redirect()->route('table');
     }
 }

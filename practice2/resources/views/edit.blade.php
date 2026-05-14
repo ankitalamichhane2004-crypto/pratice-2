@@ -52,7 +52,7 @@
 <div class="container">
     <h2>Edit User</h2>
 
-    <form  method="POST">
+    <form  method="POST" action="{{ route('update',$data->id ) }}">
         @csrf
 
         <input type="text" name="name" value="{{ $data->name }}" placeholder="Enter Name">
