@@ -43,7 +43,7 @@
 
     <p>
         <span class="title">email :</span>
-        {{ $data->age }}
+        {{ $data->email }}
     </p>
 
     <p>

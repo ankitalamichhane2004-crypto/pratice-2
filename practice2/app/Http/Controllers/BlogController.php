@@ -10,23 +10,21 @@ class BlogController extends Controller
     
     public function index()
     {
-        
+         $datas = Blog::get();
+       return view('blogtable',compact('datas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+   
     public function create()
     {
-        //
+         return view('blogform');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+  
     public function store(Request $request)
     {
-        //
+         Blog::create($request->all());
+        return redirect('Blog/blogtable');
     }
 
     /**
@@ -34,7 +32,10 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+    
+        // dd($data);
+        return view('blogshow',compact('blog'));
+
     }
 
     /**
@@ -42,7 +43,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        
+       return view('blogedit',compact('blog'));
     }
 
     /**
@@ -50,14 +52,16 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+      
+         $blog->update($request->all());
+         return redirect()->route('blogtable');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(Blog $blog)
     {
-        //
+       
+        $blog->delete();
+        return redirect()->route('blogtable');
     }
 }

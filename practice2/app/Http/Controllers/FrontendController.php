@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Table;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
-    public function index()
-    {
-        $datas = Table::get();
-       return view('table',compact('datas'));
-       
-    }
+   public function index()
+{
+    $data = Blog::get();
+    return view('blog',compact('data'));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -69,8 +69,8 @@ class FrontendController extends Controller
    
     public function destroy(string $id)
     {
-       $table= Table::find($id);
-        $table->delete();
+        $delete = Table::find($id);
+        $delete->delete();
         return redirect()->route('table');
     }
 }
